@@ -20,7 +20,14 @@
 <input type="text" id="guest_name" name="guest_name"><br><br>
 <label for="msg">Leave a message here:</label>
 <input type="text" id="msg" name="msg"><br><br>
-<input type="submit" value="Submit">
+<button type="submit" value="Submit">Submit</button>
 </form>
+
+{% for entry in guestbook %}
+<div>
+    <h5>{{entry.guest_name}}</h5>
+    <div style="white-space-collapse: preserve;">{{entry.msg}}</div>
+</div>
+{% endfor %}
 </body>
 </html>

@@ -1,0 +1,1 @@
+create table guests (name varchar(20), comment varchar(140));
