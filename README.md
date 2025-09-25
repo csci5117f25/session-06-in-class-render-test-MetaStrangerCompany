@@ -5,10 +5,16 @@ We will go over steps in lecture. You should fill out the following:
 
 ## What steps do I need to do when I download this repo to get it running?
 
-
+- get pipenv functioning
+- use flask for dev testing because this is Windows
 
 ## What commands starts the server?
 
+build:
+$ pip install pipenv && pipenv install
+
+start:
+$ pipenv run gunicorn server:app
 
 ## Before render
 
