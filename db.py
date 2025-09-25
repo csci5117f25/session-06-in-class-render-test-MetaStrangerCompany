@@ -15,7 +15,7 @@ pool = None
 
 def setup():
     global pool
-    DATABASE_URL = "postgresql://practicedatabase_user:ubWQeP3EiWNjvMJmGuTc8CuNb4dsGu1i@dpg-d399l27fte5s73cltca0-a.oregon-postgres.render.com/practicedatabase"
+    DATABASE_URL = "Oops! Can't show that in a public repo!"
     # current_app.logger.info(f"creating db connection pool")
     pool = ThreadedConnectionPool(1, 100, dsn=DATABASE_URL, sslmode="require")
 
