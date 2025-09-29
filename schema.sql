@@ -1,1 +1,1 @@
-create table guests (name varchar(20), comment varchar(140));
+create table guest_book_entries (id SERIAL primary key, name text, content text);

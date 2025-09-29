@@ -46,7 +46,7 @@ def add_post(name, text):
     with get_db_cursor(True) as cur:
         # current_app.logger.info("Adding guestbook post %s, %s", name, text)
         cur.execute(
-            "INSERT INTO guests(name, comment) values (%s, %s);",
+            "INSERT INTO guest_book_entries(name, content) values (%s, %s);",
             (name, text),
         )
 
