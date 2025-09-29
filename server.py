@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request
-import db
+# import db
+def setup():
+    global pool
+    DATABASE_URL = os.environ["DATABASE_URL"]
+    # current_app.logger.info(f"creating db connection pool")
+    pool = ThreadedConnectionPool(1, 100, dsn=DATABASE_URL, sslmode="require")
 
 app = Flask(__name__)
 setup()
@@ -7,14 +12,14 @@ setup()
 @app.route('/')
 @app.route('/<name>')
 def hello(name=None):
-    return render_template('hello.html', name=name, guestbook=db.get_guestbook())
+    return render_template('hello.html', name=name, guestbook=get_guestbook())
 
 @app.route('/submit')
 def submit():
     name = request.form.get("name")
     comment = request.form.get("comment")
     add_post(name, comment)
-    return render_template('hello.html', name="Visitor", guestbook=db.get_guestbook())
+    return render_template('hello.html', name="Visitor", guestbook=get_guestbook())
 
 #Taken from Kluver's demo repo. Currently in the "read/understand/edit" phase.
 
@@ -31,11 +36,7 @@ from psycopg2.extras import DictCursor
 pool = None
 
 
-def setup():
-    global pool
-    DATABASE_URL = os.environ["DATABASE_URL"]
-    # current_app.logger.info(f"creating db connection pool")
-    pool = ThreadedConnectionPool(1, 100, dsn=DATABASE_URL, sslmode="require")
+
 
 
 @contextmanager
