@@ -55,7 +55,7 @@ def get_guestbook():
     retval = []
     with get_db_cursor(False) as cur:
         with get_db_cursor() as cur:
-            cur.execute("select * from guests")
+            cur.execute("select * from guest_book_entries")
             for row in cur:
                 retval.append({"name": row["name"], "text": row["content"]})
     return retval
