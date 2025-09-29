@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request
 # import db
+
+import os 
+
 def setup():
     global pool
     DATABASE_URL = os.environ["DATABASE_URL"]
