@@ -13,6 +13,6 @@ def hello(name=None):
 def submit():
     if request.method == 'POST':
         name = request.form.get("name")
-        comment = request.form.get("content")
+        comment = request.form.get("text")
         db.add_post(name, comment)
     return render_template('hello.html', name="Visitor", guestbook=db.get_guestbook())
