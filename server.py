@@ -9,9 +9,10 @@ db.setup()
 def hello(name=None):
     return render_template('hello.html', name=name, guestbook=db.get_guestbook())
 
-@app.route('/submit')
+@app.route('/submit', methods=['GET', 'POST'])
 def submit():
-    name = request.form.get("name")
-    comment = request.form.get("comment")
-    db.add_post(name, comment)
+    if request.method == 'POST':
+        name = request.form.get("name")
+        comment = request.form.get("comment")
+        db.add_post(name, comment)
     return render_template('hello.html', name="Visitor", guestbook=db.get_guestbook())
