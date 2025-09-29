@@ -15,7 +15,6 @@
 <h2>and hello to {{name}}</h2>
 {% endif %}
 
-<form>
 <form action="/submit" method="post">
     <input type="text" required name="name" placeholder="name">
     <textarea name="text"></textarea>
@@ -28,6 +27,5 @@
     <div style="white-space-collapse: preserve;">{{entry.text}}</div>
 </div>
 {% endfor %}
-</body>
 </body>
 </html>
