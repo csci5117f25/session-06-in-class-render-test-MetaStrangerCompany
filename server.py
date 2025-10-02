@@ -7,7 +7,7 @@ from urllib.parse import quote_plus, urlencode
 from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
-app.secret_key = os.environ("APP_SECRET_KEY")
+app.secret_key = os.environ.get("APP_SECRET_KEY")
 
 oauth = OAuth(app)
 
@@ -62,3 +62,5 @@ def logout():
         )
     )
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=os.environ.get("PORT", 5432))
