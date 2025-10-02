@@ -19,7 +19,9 @@
 <h1>SESSION EXISTS</h1>
 <code>
     <pre>
+        {% if session.user %}
         {{session.user|tojson}}
+        {% endif %}
     </pre>
 </code>
 <p><a href="/logout">Logout</a></p>
